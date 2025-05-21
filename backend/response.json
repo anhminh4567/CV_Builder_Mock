@@ -1,0 +1,587 @@
+{
+    "success": true,
+    "message": "",
+    "components": [
+        {
+            "name": "root",
+            "lable": "root",
+            "type": "container",
+            "components": [
+                {
+                    "name": "name_title",
+                    "lable": "name_title",
+                    "type": "title",
+                    "components": [
+                        {
+                            "name": "name",
+                            "lable": "name",
+                            "type": "text",
+                            "components": [],
+                            "text": "TRAN DINH ANH MINH"
+                        }
+                    ]
+                },
+                {
+                    "name": "role",
+                    "lable": "role",
+                    "type": "text",
+                    "components": [],
+                    "text": ".NET / Backend Engineer"
+                },
+                {
+                    "name": "contact_info",
+                    "lable": "contact_info",
+                    "type": "text",
+                    "components": [],
+                    "text": "0847 942 496 | anhminh052003@gmail.com | https://github.com/anhminh4567 | District 11, HCM City"
+                },
+                {
+                    "name": "objective_container",
+                    "lable": "objective_container",
+                    "type": "container",
+                    "components": [
+                        {
+                            "name": "objective_title",
+                            "lable": "objective_title",
+                            "type": "title",
+                            "components": [
+                                {
+                                    "name": "objective",
+                                    "lable": "objective",
+                                    "type": "text",
+                                    "components": [],
+                                    "text": "OBJECTIVE"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "objective_list",
+                            "lable": "objective_list",
+                            "type": "list",
+                            "components": [
+                                {
+                                    "name": "objective_item_1",
+                                    "lable": "objective_item_1",
+                                    "type": "list_item",
+                                    "components": [],
+                                    "text": "Desire to work on new projects to acquire experiences with technologies and work environment"
+                                },
+                                {
+                                    "name": "objective_item_2",
+                                    "lable": "objective_item_2",
+                                    "type": "list_item",
+                                    "components": [],
+                                    "text": "Expect to work with microservice architect, to improve knowledge on API, Security, Scalling"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "education_container",
+                            "lable": "education_container",
+                            "type": "container",
+                            "components": [
+                                {
+                                    "name": "education_title",
+                                    "lable": "education_title",
+                                    "type": "title",
+                                    "components": [
+                                        {
+                                            "name": "education",
+                                            "lable": "education",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "EDUCATION"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "education_item_1",
+                                    "lable": "education_item_1",
+                                    "type": "text",
+                                    "components": [],
+                                    "text": "Bachelor of Software Engineer 1/2022 - 1/2025"
+                                },
+                                {
+                                    "name": "education_item_2",
+                                    "lable": "education_item_2",
+                                    "type": "text",
+                                    "components": [],
+                                    "text": "From FPT University HCM Campus"
+                                },
+                                {
+                                    "name": "education_item_3",
+                                    "lable": "education_item_3",
+                                    "type": "text",
+                                    "components": [],
+                                    "text": "Graduated Classification: Very Good"
+                                },
+                                {
+                                    "name": "education_item_4",
+                                    "lable": "education_item_4",
+                                    "type": "text",
+                                    "components": [],
+                                    "text": "GPA: 3.33 / 4"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "experiences_container",
+                            "lable": "experiences_container",
+                            "type": "container",
+                            "components": [
+                                {
+                                    "name": "experiences_title",
+                                    "lable": "experiences_title",
+                                    "type": "title",
+                                    "components": [
+                                        {
+                                            "name": "experiences",
+                                            "lable": "experiences",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "EXPERIENCES"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "experience_item_1",
+                                    "lable": "experience_item_1",
+                                    "type": "text",
+                                    "components": [],
+                                    "text": "OJT DevOps at FSoft high tech district 9/2023 - 12/2023"
+                                },
+                                {
+                                    "name": "experience_list",
+                                    "lable": "experience_list",
+                                    "type": "list",
+                                    "components": [
+                                        {
+                                            "name": "experience_item_2",
+                                            "lable": "experience_item_2",
+                                            "type": "list_item",
+                                            "components": [],
+                                            "text": "Use Azure to setup VM, proxy NGINX, manage Certificate and Secret with Key Vault and rotation, infrastructure automation with Bicep"
+                                        },
+                                        {
+                                            "name": "experience_item_3",
+                                            "lable": "experience_item_3",
+                                            "type": "list_item",
+                                            "components": [],
+                                            "text": "Setup Development environment for Sodexo company"
+                                        },
+                                        {
+                                            "name": "experience_item_4",
+                                            "lable": "experience_item_4",
+                                            "type": "list_item",
+                                            "components": [],
+                                            "text": "Solve certificate chain problem in VM, security to VM, setup jump server"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "certificates_container",
+                                    "lable": "certificates_container",
+                                    "type": "container",
+                                    "components": [
+                                        {
+                                            "name": "certificates_title",
+                                            "lable": "certificates_title",
+                                            "type": "title",
+                                            "components": [
+                                                {
+                                                    "name": "certificates",
+                                                    "lable": "certificates",
+                                                    "type": "text",
+                                                    "components": [],
+                                                    "text": "CERTIFICATES"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "certificate_item_1",
+                                            "lable": "certificate_item_1",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "AZ-900 5/2025"
+                                        },
+                                        {
+                                            "name": "certificate_list_1",
+                                            "lable": "certificate_list_1",
+                                            "type": "list",
+                                            "components": [
+                                                {
+                                                    "name": "certificate_item_2",
+                                                    "lable": "certificate_item_2",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "From Microsoft"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "certificate_item_3",
+                                            "lable": "certificate_item_3",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "Microsoft Azure: from zero to hero 5/2025"
+                                        },
+                                        {
+                                            "name": "certificate_list_2",
+                                            "lable": "certificate_list_2",
+                                            "type": "list",
+                                            "components": [
+                                                {
+                                                    "name": "certificate_item_4",
+                                                    "lable": "certificate_item_4",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "From Udemy"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "certificate_item_5",
+                                            "lable": "certificate_item_5",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "Software Development Cycle 1/2023"
+                                        },
+                                        {
+                                            "name": "certificate_list_3",
+                                            "lable": "certificate_list_3",
+                                            "type": "list",
+                                            "components": [
+                                                {
+                                                    "name": "certificate_item_6",
+                                                    "lable": "certificate_item_6",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "From University of Minnesota, Cousera, about AGILE, Scrum process"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "certificate_item_7",
+                                            "lable": "certificate_item_7",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "Computer Communication 11/2022"
+                                        },
+                                        {
+                                            "name": "certificate_list_4",
+                                            "lable": "certificate_list_4",
+                                            "type": "list",
+                                            "components": [
+                                                {
+                                                    "name": "certificate_item_8",
+                                                    "lable": "certificate_item_8",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "From Colorado University, Cousera, about OSI model, 7 layers and Protocols"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "certificate_item_9",
+                                            "lable": "certificate_item_9",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "IELTS 7.0 2/2021"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "skills_container",
+                                    "lable": "skills_container",
+                                    "type": "container",
+                                    "components": [
+                                        {
+                                            "name": "skills_title",
+                                            "lable": "skills_title",
+                                            "type": "title",
+                                            "components": [
+                                                {
+                                                    "name": "skills",
+                                                    "lable": "skills",
+                                                    "type": "text",
+                                                    "components": [],
+                                                    "text": "SKILLS"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "skill_item_1",
+                                            "lable": "skill_item_1",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "Language: English"
+                                        },
+                                        {
+                                            "name": "skill_item_2",
+                                            "lable": "skill_item_2",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "Frontend: HTML, CSS, Tailwind, React TS, JS"
+                                        },
+                                        {
+                                            "name": "skill_item_3",
+                                            "lable": "skill_item_3",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "Backend: C#, Python, ASP.NET, .NET, Razor Page, Django, FastAPI, RabbitMQ"
+                                        },
+                                        {
+                                            "name": "skill_item_4",
+                                            "lable": "skill_item_4",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "Database: Postgresql, MSSQL, Mongodb"
+                                        },
+                                        {
+                                            "name": "skill_item_5",
+                                            "lable": "skill_item_5",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "Desktop: WPF, Winform"
+                                        },
+                                        {
+                                            "name": "skill_item_6",
+                                            "lable": "skill_item_6",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "Cloud: CI/CD, Hosting: Azure, Azure Devops, Docker, Github Action, AWS"
+                                        },
+                                        {
+                                            "name": "skill_item_7",
+                                            "lable": "skill_item_7",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "Version Control: Git, Source Tree, Github"
+                                        },
+                                        {
+                                            "name": "skill_item_8",
+                                            "lable": "skill_item_8",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "Server & Proxy: Ubuntu, Nginx, Yarp"
+                                        },
+                                        {
+                                            "name": "skill_item_9",
+                                            "lable": "skill_item_9",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "Architecture Pattern: Clean Architecture, SOLID, DDD, Modular Monolith, MVC, MVVM"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "projects_container",
+                                    "lable": "projects_container",
+                                    "type": "container",
+                                    "components": [
+                                        {
+                                            "name": "projects_title",
+                                            "lable": "projects_title",
+                                            "type": "title",
+                                            "components": [
+                                                {
+                                                    "name": "projects",
+                                                    "lable": "projects",
+                                                    "type": "text",
+                                                    "components": [],
+                                                    "text": "PROJECTS"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "project_item_1",
+                                            "lable": "project_item_1",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "Diamondshop System (Capstone) 8/2024 - 12/2024"
+                                        },
+                                        {
+                                            "name": "project_list_1",
+                                            "lable": "project_list_1",
+                                            "type": "list",
+                                            "components": [
+                                                {
+                                                    "name": "project_item_2",
+                                                    "lable": "project_item_2",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "https://github.com/SEP490-DiamondShopSystem/DSS_BE"
+                                                },
+                                                {
+                                                    "name": "project_item_3",
+                                                    "lable": "project_item_3",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "Create management system for jewellry diamond GIA"
+                                                },
+                                                {
+                                                    "name": "project_item_4",
+                                                    "lable": "project_item_4",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "Stack: ASP.NET 8, Pgsql, Azure, Azure App Service, CI/CD Github"
+                                                },
+                                                {
+                                                    "name": "project_item_5",
+                                                    "lable": "project_item_5",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "Team Size: 4 members(2 FE, 2 BE)"
+                                                },
+                                                {
+                                                    "name": "project_item_6",
+                                                    "lable": "project_item_6",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "Role: BE, BA, ERD design, manage source code and architecture, CI/CD, infrastructure"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "project_item_7",
+                                            "lable": "project_item_7",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "Chat App Microservice 3/2025 - 5/2025"
+                                        },
+                                        {
+                                            "name": "project_list_2",
+                                            "lable": "project_list_2",
+                                            "type": "list",
+                                            "components": [
+                                                {
+                                                    "name": "project_item_8",
+                                                    "lable": "project_item_8",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "https://github.com/anhminh4567/ChatApp_MicroService"
+                                                },
+                                                {
+                                                    "name": "project_item_9",
+                                                    "lable": "project_item_9",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "Chat app with SignalR, Microservice architect, RabbitMq for async communication between modules"
+                                                },
+                                                {
+                                                    "name": "project_item_10",
+                                                    "lable": "project_item_10",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "Stack: ASP.NET 8, RabbitMq (Azure Service Bus for Cloud Deployment), Azure blob, AWS Cognito, Otlp & Trace with jaeger & Prometheus (locally)"
+                                                },
+                                                {
+                                                    "name": "project_item_11",
+                                                    "lable": "project_item_11",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "Team size: 1 (FullStack)"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "project_item_12",
+                                            "lable": "project_item_12",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "Chat App Web Client 3/2025 - 5/2025"
+                                        },
+                                        {
+                                            "name": "project_list_3",
+                                            "lable": "project_list_3",
+                                            "type": "list",
+                                            "components": [
+                                                {
+                                                    "name": "project_item_13",
+                                                    "lable": "project_item_13",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "https://github.com/anhminh4567/ChatApp_ReactTsClient"
+                                                },
+                                                {
+                                                    "name": "project_item_14",
+                                                    "lable": "project_item_14",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "Chat app client with React TS support darkmode and oidc public client"
+                                                },
+                                                {
+                                                    "name": "project_item_15",
+                                                    "lable": "project_item_15",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "Stack: React, TS, Zustand, Antd, SignalR, Tanstack Query, Host with Azure Static Webapp"
+                                                },
+                                                {
+                                                    "name": "project_item_16",
+                                                    "lable": "project_item_16",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "Team size: 1 (FullStack)"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "project_item_17",
+                                            "lable": "project_item_17",
+                                            "type": "text",
+                                            "components": [],
+                                            "text": "Real-Estate Auction Web App 2/2024 - 4/2024"
+                                        },
+                                        {
+                                            "name": "project_list_4",
+                                            "lable": "project_list_4",
+                                            "type": "list",
+                                            "components": [
+                                                {
+                                                    "name": "project_item_18",
+                                                    "lable": "project_item_18",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "https://github.com/anhminh4567/Estate-Auction-Razor"
+                                                },
+                                                {
+                                                    "name": "project_item_19",
+                                                    "lable": "project_item_19",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "Create real estate aution management system"
+                                                },
+                                                {
+                                                    "name": "project_item_20",
+                                                    "lable": "project_item_20",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "Tech: C# Razor Page, MSSQL, Docker container"
+                                                },
+                                                {
+                                                    "name": "project_item_21",
+                                                    "lable": "project_item_21",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "Team Size: 5 members(3 FE, 2 BE)"
+                                                },
+                                                {
+                                                    "name": "project_item_22",
+                                                    "lable": "project_item_22",
+                                                    "type": "list_item",
+                                                    "components": [],
+                                                    "text": "Role: BE, Business Analysis, ERD designe, project management"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
