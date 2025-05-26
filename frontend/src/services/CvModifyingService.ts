@@ -1,37 +1,29 @@
-import { cvService } from "@/services/CvModifyingService";
 import { Cv } from "@/types/cv/state/Cv";
-import { create } from "zustand";
 
-export interface CvModificationStateStore {
-  currentCv: Cv;
-  isLoading: boolean;
-  error: Error | null;
-  isSaving: boolean;
-  setCurrentCv: (cv: Cv) => void;
-  fetchCvState: (userId: string) => Promise<void>;
+async function getUserCvState(userId: string): Promise<Cv> {
+  //   const responseCvPrompt = await new Promise<string>((resolve) => {
+  //     setTimeout(() => {
+  //       resolve(JSON.stringify(jsonCV));
+  //     }, 1000);
+  //   });
+  const cvState = Cv.loadFromLocalStorage();
+  if (cvState) {
+    return new Promise<Cv>((resolve) => {
+      setTimeout(() => resolve(cvState), 2000);
+    });
+  } else {
+    return await createNewCvState(userId);
+  }
 }
-export const useCvModificationStateStore = create<CvModificationStateStore>(
-  (set, get) => ({
-    currentCv: new Cv("CV", "CV Description"),
-    setCurrentCv: (cv: Cv) => {
-      set({ currentCv: cv });
-    },
-    isLoading: true,
-    error: null,
-    isSaving: false,
-    fetchCvState: async (userId: string) => {
-      set({ isLoading: true, error: null }); // Set loading to true
-      try {
-        console.log("Fetching CV state for user:", userId);
-        const cvState = await cvService.getUserCvState(userId); // Fetch CV state
-        set({ currentCv: cvState, isLoading: false }); // Set data and turn off loading
-        console.log("Fetched CV state:", cvState);
-      } catch (error: any) {
-        set({ error: error, isLoading: false }); // Set error and turn off loading
-      }
-    },
-  })
-);
+async function createNewCvState(userId: string): Promise<Cv> {
+  const newCv = new Cv("CV test for user " + userId, "CV test purpose");
+  newCv.saveToLocalStorage();
+  return Promise.resolve(newCv);
+}
+export const cvService = {
+  getUserCvState,
+  createNewCvState,
+};
 const jsonCV = {
   success: true,
   message: "",

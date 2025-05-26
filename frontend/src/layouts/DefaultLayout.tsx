@@ -29,7 +29,7 @@ const DefaultLayout = (props: DefaultLayoutProps) => {
         flex="1"
         bg="gray.50"
         _dark={{ bg: "gray.900" }}
-        className="flex flex-col overflow-auto"
+        className="flex flex-col "
       >
         <Header sideBarContent={sideBarContent(true)} />
         <Box p={3}>

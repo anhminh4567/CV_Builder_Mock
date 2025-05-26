@@ -25,7 +25,7 @@ export class Cv {
     this.name = name;
     this.description = description;
     this.height = height ?? Cv.DEFAULT_A4_HEIGHT;
-    this.width = width ?? Cv.DEFAULT_A4_HEIGHT * Cv.DEFAULT_A4_RATIO;
+    this.width = width ?? Cv.DEFAULT_A4_HEIGHT / Cv.DEFAULT_A4_RATIO;
     this.createdAt = createdAt;
     this.Components = component ?? [];
   }
@@ -40,5 +40,16 @@ export class Cv {
     );
     newCv.id = cv.id;
     return newCv;
+  }
+  public saveToLocalStorage(key: string = "cv_data"): void {
+    const json = JSON.stringify(this);
+    localStorage.setItem(key, json);
+  }
+
+  public static loadFromLocalStorage(key: string = "cv_data"): Cv | null {
+    const json = localStorage.getItem(key);
+    if (!json) return null;
+    const obj = JSON.parse(json);
+    return Cv.fromType(obj);
   }
 }
