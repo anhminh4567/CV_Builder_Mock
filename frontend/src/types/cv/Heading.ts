@@ -1,7 +1,7 @@
-import { BaseComponent } from "./BaseComponent";
+import { BaseSection } from "./BaseSection";
 
 // Heading
-export interface Heading extends BaseComponent {
+export interface Heading extends BaseSection {
   fullname: string;
   introduction?: string;
 }

@@ -1,7 +1,7 @@
-import { BaseComponent } from "./BaseComponent";
+import { BaseSection } from "./BaseSection";
 
 // Experience
-export interface Experience extends BaseComponent {
+export interface Experience extends BaseSection {
   job_title?: string;
   company?: string;
   from_date?: string;

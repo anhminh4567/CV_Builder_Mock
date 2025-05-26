@@ -1,25 +1,24 @@
 import { Cv } from "@/types/cv/state/Cv";
+import { parseSection } from "./CvParsingService";
+import { BaseSection } from "@/types/cv/BaseSection";
+import { Component } from "@/types/cv/state/Component";
 
-async function getUserCvState(userId: string): Promise<Cv> {
-  //   const responseCvPrompt = await new Promise<string>((resolve) => {
-  //     setTimeout(() => {
-  //       resolve(JSON.stringify(jsonCV));
-  //     }, 1000);
-  //   });
+async function getUserCvState(userId: string): Promise<Cv | null> {
   const cvState = Cv.loadFromLocalStorage();
   if (cvState) {
     return new Promise<Cv>((resolve) => {
       setTimeout(() => resolve(cvState), 2000);
     });
   } else {
-    return await createNewCvState(userId);
+    return null;
   }
 }
-async function createNewCvState(userId: string): Promise<Cv> {
-  const newCv = new Cv("CV test for user " + userId, "CV test purpose");
-  newCv.saveToLocalStorage();
-  return Promise.resolve(newCv);
+async function createNewCvState(userId: string, cv: Cv): Promise<Cv> {
+  cv.saveToLocalStorage();
+
+  return Promise.resolve(cv);
 }
+
 export const cvService = {
   getUserCvState,
   createNewCvState,

@@ -41,8 +41,10 @@ export class Cv {
     newCv.id = cv.id;
     return newCv;
   }
+
   public saveToLocalStorage(key: string = "cv_data"): void {
     const json = JSON.stringify(this);
+    //key + "_" + this.id
     localStorage.setItem(key, json);
   }
 
@@ -51,5 +53,27 @@ export class Cv {
     if (!json) return null;
     const obj = JSON.parse(json);
     return Cv.fromType(obj);
+  }
+  public addComponent(index: number, newComponent: Component): void {
+    let firstSectoin = this.Components.slice(0, index);
+    let secondSection = this.Components.slice(index);
+    this.Components = [...firstSectoin, newComponent, ...secondSection];
+  }
+  public removeComponent(index: number): void {
+    this.Components = this.Components.filter((_, i) => i !== index);
+  }
+  public moveComponentToPosition(
+    componentIndex: number,
+    newPosition: number
+  ): void {
+    if (componentIndex < 0 || componentIndex >= this.Components.length) {
+      throw new Error("Component index out of bounds");
+    }
+    if (newPosition < 0 || newPosition >= this.Components.length) {
+      throw new Error("New position out of bounds");
+    }
+    const component = this.Components[componentIndex];
+    this.removeComponent(componentIndex);
+    this.addComponent(newPosition, component);
   }
 }

@@ -1,7 +1,7 @@
-import { BaseComponent } from "./BaseComponent";
+import { BaseSection } from "./BaseSection";
 
 // CustomSection
-export interface CustomSection extends BaseComponent {
+export interface CustomSection extends BaseSection {
   name?: string;
   content: string[];
 }

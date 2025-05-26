@@ -1,21 +1,58 @@
-import { Outlet } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import Header from "./Header";
 import SideBar from "./SideBar";
 import { Box, Stack } from "@chakra-ui/react";
 import CloseableButton from "@/components/ui/CloseableButton";
 import { FaSearch } from "react-icons/fa";
 import React from "react";
+import { BiAddToQueue } from "react-icons/bi";
+import { FaRobot } from "react-icons/fa6";
+import { IoIosLogOut } from "react-icons/io";
+import { BsPersonWorkspace } from "react-icons/bs";
 
 export interface DefaultLayoutProps extends React.PropsWithChildren {}
 
-const DefaultLayout = (props: DefaultLayoutProps) => {
+const DefaultLayout = ({}: DefaultLayoutProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const navigate = useNavigate();
   const sideBarContent = (isOpen: boolean) => (
     <Stack>
-      <CloseableButton icon={<FaSearch />} label="Search" isOpen={isOpen} />
-      <CloseableButton icon={<FaSearch />} label="Search" isOpen={isOpen} />
-      <CloseableButton icon={<FaSearch />} label="Search" isOpen={isOpen} />
-      <CloseableButton icon={<FaSearch />} label="Search" isOpen={isOpen} />
+      <CloseableButton
+        icon={<BiAddToQueue />}
+        label="CV Customization"
+        isOpen={isOpen}
+        variant="start"
+        onClick={() => {
+          navigate("/", {});
+        }}
+      />
+      <CloseableButton
+        icon={<FaRobot />}
+        label="AI CV-parse"
+        isOpen={isOpen}
+        variant="start"
+        onClick={() => {
+          navigate("/ai-cv-parse", {});
+        }}
+      />
+      <CloseableButton
+        icon={<IoIosLogOut />}
+        label="Logout"
+        isOpen={isOpen}
+        variant="start"
+      />
+      <CloseableButton
+        icon={<FaSearch />}
+        label="Search"
+        isOpen={isOpen}
+        variant="start"
+      />
+      <CloseableButton
+        icon={<BsPersonWorkspace />}
+        label="Workspace"
+        isOpen={isOpen}
+        variant="start"
+      />
     </Stack>
   );
   return (

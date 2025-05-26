@@ -1,6 +1,4 @@
-import { BaseComponent } from "./BaseComponent";
+import { BaseListSection } from "./BaseListSection";
 import { Certificate } from "./Certificate";
 
-export interface CertificateList extends BaseComponent {
-  certificates: Certificate[];
-}
+export interface CertificateList extends BaseListSection<Certificate> {}

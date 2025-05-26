@@ -1,7 +1,7 @@
-import { BaseComponent } from "./BaseComponent";
+import { BaseSection } from "./BaseSection";
 
 // Education
-export interface Education extends BaseComponent {
+export interface Education extends BaseSection {
   institution?: string;
   degree?: string;
   gpa?: number;

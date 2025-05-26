@@ -4,6 +4,9 @@ from pydantic import BaseModel, Field
 class BaseComponent(BaseModel):
     componentName: str = Field(default="", description="Name of the component type, example, if this is a Heading component ==> name is Heading, MUST BE EXACT NAME  ")
 
+class BaseListComponent(BaseComponent):
+    items : list[Union[ BaseComponent]] = Field(default=[], description="List of items in the component, can be another components or empty list")
+
 class Heading(BaseComponent):
     fullname:str = Field(default="", description="Full name of the candidate")
     introduction: Optional[str] = Field(default="", description="Introduction of the candidate")
@@ -30,9 +33,13 @@ class Skill(BaseComponent):
     name: Optional[str] = Field(default="", description="Name of the skill")
 
     
-class SkillList(BaseComponent):
-    skills: list[Skill] = Field(default=[], description="List of skills")
-    
+class SkillList(BaseListComponent):
+    items: list[Skill] = Field(default=[], description="List of skills, a skill MUST be placed in skillList, componentName 'Skill' cannot exist without skillList")
+
+    @property
+    def skills(self) -> list[Skill]:
+        return self.items
+
 class Experience(BaseComponent):
     job_title: Optional[str] = Field(default="", description="Job title")
     company: Optional[str] = Field(default="", description="Company name")
@@ -40,8 +47,12 @@ class Experience(BaseComponent):
     to_date: Optional[str] = Field(default="", description="End date of the job, format: MM/YYYY, if not provided, default to 'NOW'")
     description: list[str] = Field(default="", description="list of outline of description of the job")
     
-class ExperienceList(BaseComponent):
-    experiences: list[Experience] = Field(default=[], description="List of experiences")
+class ExperienceList(BaseListComponent):
+    items: list[Experience] = Field(default=[], description="List of experiences, an experience section MUST be placed in experienceList section, componentName 'Experience' cannot exist without experienceList")
+
+    @property
+    def experiences(self) -> list[Experience]:
+        return self.items
     
 class Summary(BaseComponent):
     summary_list: list[str] = Field(default=[], description="List of summary points")
@@ -51,16 +62,25 @@ class Certificate(BaseComponent):
     date: Optional[str] = Field(default="", description="Date from to of the certificate, format: MM/YYYY, if not provided, default to 'NOW'")
     issuer: Optional[str] = Field(default="", description="Issuer of the certificate")
     
-class CertificateList(BaseComponent):
-    certificates: list[Certificate] = Field(default=[], description="List of certificates")
+class CertificateList(BaseListComponent):
+    items: list[Certificate] = Field(default=[], description="List of certificates, a certificate MUST be placed in certificateList, componentName 'Certificate' cannot exist without certificateList")
+
+    @property
+    def certificates(self) -> list[Certificate]:
+        return self.items
     
 class Project(BaseComponent):
     name: Optional[str] = Field(default="", description="Name of the project")
     description: list[str] = Field(default="", description="Description of the project")
     link: Optional[str] = Field(default="", description="Link to the project")
 class ProjectList(BaseComponent):
-    projects: list[Project] = Field(default=[], description="List of projects")
+    items: list[Project] = Field(default=[], description="List of projects, a project MUST be placed in projectList section, componentName 'Project' cannot exist without projectList")
+
+    @property
+    def projects(self) -> list[Project]:
+        return self.items
     
+
 class CustomSection(BaseComponent):
     name: Optional[str] = Field(default="", description="Name of the custom section")
     content: list[str] = Field(default="", description="Content of the custom section")
@@ -68,8 +88,8 @@ class CustomSection(BaseComponent):
 
 
 all_classes: list[BaseComponent] = [
-    Heading, Contact, Education, Skill, SkillList, Experience, ExperienceList,
-    Summary, Certificate, CertificateList, Project, ProjectList, CustomSection
+    Heading, Contact, Education,Summary,SkillList,ExperienceList, CertificateList,ProjectList, Skill, Experience, Certificate, Project,CustomSection,
+    
 ]
 def get_json_schema_for_all_classes() -> str:
     """Get the JSON schema for all classes."""

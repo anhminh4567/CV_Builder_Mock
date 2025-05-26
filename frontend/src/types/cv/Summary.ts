@@ -1,6 +1,6 @@
-import { BaseComponent } from "./BaseComponent";
+import { BaseSection } from "./BaseSection";
 
 // Summary
-export interface Summary extends BaseComponent {
+export interface Summary extends BaseSection {
   summary_list: string[];
 }

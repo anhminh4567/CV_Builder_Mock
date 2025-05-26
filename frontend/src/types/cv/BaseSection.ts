@@ -1,7 +1,7 @@
-export interface BaseComponent {
-  componentName: BaseComponentName;
+export interface BaseSection {
+  componentName: BaseSectionName;
 }
-export type BaseComponentName =
+export type BaseSectionName =
   | "Heading"
   | "Contact"
   | "Summary"

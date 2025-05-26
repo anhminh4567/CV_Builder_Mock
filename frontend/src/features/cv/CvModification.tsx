@@ -8,27 +8,40 @@ import { useEffect, useState } from "react";
 import { useColorMode } from "@/components/ui/color-mode";
 import CvPaper from "./components/CvPaper";
 import CvTools from "./components/CvTools";
+// import { localService } from "./services/LocalCvService";
+// import { isEqual } from "lodash";
+// import { CvSettings } from "./types/CvModificationSettings";
 
 export interface CvModificationProps extends React.PropsWithChildren {}
 
 const CvModification = (props: CvModificationProps) => {
-  const [scale, setScale] = useState<number>(1);
+  // let currentCvSettings = localService.getCvSettings("anyUserId", "testCvId_1");
+  const [scale, setScale] = useState<number>(0.4);
   const [showGrid, setShowGrid] = useState<boolean>(false);
   const colorMode = useColorMode().colorMode;
-  // console.log(colorMode);
 
   const { isLoading, error, currentCv, fetchCvState } =
     useCvModificationStateStore();
   useEffect(() => {
     fetchCvState("anyUserId");
+    // localService.getCvSettings("anyUserId", "testCvId_1").then((setting) => {
+    //   if (setting) {
+    //     setShowGrid(setting.showGrid);
+    //     setScale(setting.currentZoom);
+    //   }
+    // });
   }, []);
+
   return (
     <div className="flex flex-row">
       <CvTools onShowGridClick={() => setShowGrid(!showGrid)} />
       <DndContext>
         <CvPageContextProvider
           scale={scale}
-          setScale={(newVal) => setScale(newVal)}
+          setScale={(newVal) => {
+            setScale(newVal);
+            console.log("Scale changed to:", scale);
+          }}
           currentCv={currentCv}
           showGrid={showGrid}
           setShowGrid={() => setShowGrid(!showGrid)}
@@ -57,8 +70,8 @@ const CvModification = (props: CvModificationProps) => {
               {props.children}
               {isLoading && (
                 <Skeleton
-                  height={Cv.DEFAULT_A4_HEIGHT}
-                  width={Cv.DEFAULT_A4_HEIGHT / Cv.DEFAULT_A4_RATIO}
+                  height={Cv.DEFAULT_A4_HEIGHT * scale}
+                  width={(Cv.DEFAULT_A4_HEIGHT / Cv.DEFAULT_A4_RATIO) * scale}
                 />
               )}
               {!isLoading && !error && <CvPaper></CvPaper>}

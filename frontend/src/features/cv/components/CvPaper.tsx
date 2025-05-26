@@ -24,7 +24,7 @@ const CvPaper = ({}: CvPaperProps) => {
       <div
         ref={paperRef}
         onWheel={handleWheel}
-        className="relative cv-page-main bg-white shadow-md "
+        className="relative cv-page-main bg-white shadow-md text-black"
         style={{
           width: currentCv?.width * scale,
           height: currentCv?.height * scale,

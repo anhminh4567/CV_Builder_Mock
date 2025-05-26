@@ -1,6 +1,4 @@
-import { BaseComponent } from "./BaseComponent";
+import { BaseListSection } from "./BaseListSection";
 import { Skill } from "./Skill";
 
-export interface SkillList extends BaseComponent {
-  skills: Skill[];
-}
+export interface SkillList extends BaseListSection<Skill> {}

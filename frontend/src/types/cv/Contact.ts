@@ -1,7 +1,7 @@
-import { BaseComponent } from "./BaseComponent";
+import { BaseSection } from "./BaseSection";
 
 // Contact
-export interface Contact extends BaseComponent {
+export interface Contact extends BaseSection {
   email?: string;
   phone?: string;
   address?: string;
