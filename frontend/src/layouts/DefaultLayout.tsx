@@ -35,12 +35,7 @@ const DefaultLayout = ({}: DefaultLayoutProps) => {
           navigate("/ai-cv-parse", {});
         }}
       />
-      <CloseableButton
-        icon={<IoIosLogOut />}
-        label="Logout"
-        isOpen={isOpen}
-        variant="start"
-      />
+
       <CloseableButton
         icon={<FaSearch />}
         label="Search"
@@ -52,6 +47,16 @@ const DefaultLayout = ({}: DefaultLayoutProps) => {
         label="Workspace"
         isOpen={isOpen}
         variant="start"
+      />
+      <CloseableButton
+        icon={<IoIosLogOut />}
+        label="Logout"
+        isOpen={isOpen}
+        variant="start"
+        onClick={() => {
+          // Handle logout logic here
+          navigate("/security", {});
+        }}
       />
     </Stack>
   );

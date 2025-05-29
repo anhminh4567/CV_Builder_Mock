@@ -8,3 +8,6 @@ export interface Education extends BaseSection {
   date?: string;
   major?: string;
 }
+export function isEducation(section: BaseSection): boolean {
+  return section.componentName === "Education";
+}

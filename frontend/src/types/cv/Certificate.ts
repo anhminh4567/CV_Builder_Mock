@@ -6,3 +6,6 @@ export interface Certificate extends BaseSection {
   date?: string;
   issuer?: string;
 }
+export function isCertificate(section: BaseSection): boolean {
+  return section.componentName === "Certificate";
+}

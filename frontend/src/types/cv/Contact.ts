@@ -9,3 +9,6 @@ export interface Contact extends BaseSection {
   github?: string;
   website?: string;
 }
+export function isContact(section: BaseSection): boolean {
+  return section.componentName === "Contact";
+}

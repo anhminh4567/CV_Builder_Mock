@@ -1,4 +1,6 @@
+import { BaseSection } from "../BaseSection";
 import { Component } from "./Component";
+import { CvSettings, CvSettingsDefault } from "./CvSettings";
 
 export class Cv {
   public static readonly DEFAULT_A4_RATIO = 297 / 210;
@@ -9,9 +11,13 @@ export class Cv {
   public createdAt?: string;
   public width: number;
   public height: number;
-  public Components: Component[];
+  public Components: Component<BaseSection>[];
+  public cvSettings?: CvSettings;
   get ratio(): number {
     return this.width / this.height;
+  }
+  get componentIds(): string[] {
+    return this.Components.map((c) => c.id);
   }
   constructor(
     name: string,
@@ -19,7 +25,8 @@ export class Cv {
     width?: number,
     height?: number,
     createdAt?: string,
-    component?: Component[]
+    component?: Component<BaseSection>[],
+    cvSettings?: CvSettings
   ) {
     this.id = crypto.randomUUID();
     this.name = name;
@@ -28,6 +35,7 @@ export class Cv {
     this.width = width ?? Cv.DEFAULT_A4_HEIGHT / Cv.DEFAULT_A4_RATIO;
     this.createdAt = createdAt;
     this.Components = component ?? [];
+    this.cvSettings = cvSettings ?? CvSettingsDefault;
   }
   public static fromType(cv: Cv): Cv {
     let newCv = new Cv(
@@ -54,26 +62,31 @@ export class Cv {
     const obj = JSON.parse(json);
     return Cv.fromType(obj);
   }
-  public addComponent(index: number, newComponent: Component): void {
-    let firstSectoin = this.Components.slice(0, index);
-    let secondSection = this.Components.slice(index);
-    this.Components = [...firstSectoin, newComponent, ...secondSection];
+  public static addComponent<T extends BaseSection>(
+    input: Cv,
+    index: number,
+    newComponent: Component<T>
+  ): void {
+    let firstSectoin = input.Components.slice(0, index);
+    let secondSection = input.Components.slice(index);
+    input.Components = [...firstSectoin, newComponent, ...secondSection];
   }
-  public removeComponent(index: number): void {
-    this.Components = this.Components.filter((_, i) => i !== index);
+  public static removeComponent(input: Cv, index: number): void {
+    input.Components = input.Components.filter((_, i) => i !== index);
   }
-  public moveComponentToPosition(
+  public static moveComponentToPosition(
+    input: Cv,
     componentIndex: number,
     newPosition: number
   ): void {
-    if (componentIndex < 0 || componentIndex >= this.Components.length) {
+    if (componentIndex < 0 || componentIndex >= input.Components.length) {
       throw new Error("Component index out of bounds");
     }
-    if (newPosition < 0 || newPosition >= this.Components.length) {
+    if (newPosition < 0 || newPosition >= input.Components.length) {
       throw new Error("New position out of bounds");
     }
-    const component = this.Components[componentIndex];
-    this.removeComponent(componentIndex);
-    this.addComponent(newPosition, component);
+    const component = input.Components[componentIndex];
+    Cv.removeComponent(input, componentIndex);
+    Cv.addComponent(input, newPosition, component);
   }
 }

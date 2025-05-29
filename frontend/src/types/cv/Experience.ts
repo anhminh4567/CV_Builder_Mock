@@ -8,3 +8,6 @@ export interface Experience extends BaseSection {
   to_date?: string;
   description: string[];
 }
+export function isExperience(section: BaseSection): boolean {
+  return section.componentName === "Experience";
+}

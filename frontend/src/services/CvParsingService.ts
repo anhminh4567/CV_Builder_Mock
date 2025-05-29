@@ -70,12 +70,12 @@ function parseSection(section: BaseSection): AllSections | null {
     case "ExperienceList":
       return {
         componentName: "ExperienceList",
-        items: (section as any).experiences ?? [],
+        items: (section as BaseListSection<Experience>).items ?? [],
       } as ExperienceList;
     case "CertificateList":
       return {
         componentName: "CertificateList",
-        items: (section as any).certificates ?? [],
+        items: (section as BaseListSection<Certificate>).items ?? [],
       } as CertificateList;
     case "Certificate":
       return {
@@ -87,7 +87,7 @@ function parseSection(section: BaseSection): AllSections | null {
     case "SkillList":
       return {
         componentName: "SkillList",
-        items: (section as any).skills ?? [],
+        items: (section as BaseListSection<Skill>).items ?? [],
       } as SkillList;
     case "Skill":
       return {
@@ -98,7 +98,7 @@ function parseSection(section: BaseSection): AllSections | null {
     case "ProjectList":
       return {
         componentName: "ProjectList",
-        items: (section as any).projects ?? [],
+        items: (section as BaseListSection<Project>).items ?? [],
       } as ProjectList;
     case "Project":
       return {
@@ -131,43 +131,58 @@ function parseSectionType(section: BaseSection): ComponentType | null {
   return null;
 }
 
-function parseComponent(section: AllSections): Component | null {
-  const type = parseSectionType(section);
+function parseComponent<T extends BaseSection>(
+  section: AllSections
+): Component<T> | null {
   const id = crypto.randomUUID();
   const now = new Date();
-  let component: Component | null = null;
-  switch (type) {
-    case ComponentType.LIST:
+  let component: Component<T> | null = null;
+  let componentName: string = section.componentName;
+
+  switch (section.componentName) {
+    case "CertificateList":
+    case "SkillList":
+    case "ExperienceList":
+    case "ProjectList": {
+      // ListComponent
       component = new ListComponent(
         id,
         now,
         now,
-        section.componentName,
-        undefined,
+        componentName,
+        componentName,
         section
-      ) as ListComponent;
-      const listComponent = component as ListComponent;
-      const items = (section as BaseListSection<BaseSection>).items;
-      if (Array.isArray(items) && items.length > 0) {
-        items.forEach((item) => {
-          const itemComponent = parseComponent(item);
-          if (itemComponent) {
-            listComponent.items.push(itemComponent);
-          }
-        });
-      }
+      );
       break;
-    case ComponentType.LIST_ITEM:
+    }
+    case "Certificate":
+      let certificateSection = section as Certificate;
+      componentName = certificateSection.name ?? "Certificate";
+    case "Skill":
+      let skillSection = section as Skill;
+      componentName = skillSection.skill_type ?? "Skill";
+    case "Experience":
+      let experienceSection = section as Experience;
+      componentName = experienceSection.job_title ?? "Experience";
+    case "Project":
+      let projectSection = section as Project;
+      componentName = projectSection.name ?? "Project";
       component = new ListItemComponent(
         id,
         now,
         now,
-        section.componentName,
-        undefined,
+        componentName,
+        componentName,
         section
       );
       break;
-    case ComponentType.ITEM:
+
+    case "Education":
+    case "Heading":
+    case "Contact":
+    case "Summary":
+    case "CustomSection": {
+      // ItemComponent
       component = new ItemComponent(
         id,
         now,
@@ -177,20 +192,9 @@ function parseComponent(section: AllSections): Component | null {
         section
       );
       break;
-    case ComponentType.LINK:
-      component = new LinkComponent(
-        id,
-        now,
-        now,
-        section.componentName,
-        undefined,
-        section
-      );
-      break;
+    }
     default:
       component = null;
-  }
-  if (hasChildComponents(section)) {
   }
   return component;
 }

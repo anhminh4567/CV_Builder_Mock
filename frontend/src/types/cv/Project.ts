@@ -6,3 +6,6 @@ export interface Project extends BaseSection {
   description: string[];
   link?: string;
 }
+export function isProject(section: BaseSection): boolean {
+  return section.componentName === "Project";
+}

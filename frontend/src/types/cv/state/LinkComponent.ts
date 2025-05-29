@@ -1,7 +1,8 @@
+import { BaseSection } from "../BaseSection";
 import { Component } from "./Component";
 import { ComponentType } from "./ComponentType";
 
-export class LinkComponent extends Component {
+export class LinkComponent<T extends BaseSection> extends Component<T> {
   constructor(
     id: string,
     createdAt: Date,

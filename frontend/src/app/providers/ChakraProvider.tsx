@@ -7,7 +7,8 @@ import {
   defineConfig,
 } from "@chakra-ui/react";
 // import { useLocalSettingStore } from "@/stores/UserSettingStore";
-import { ColorModeButton, ColorModeProvider } from "@/components/ui/color-mode";
+import { ColorModeProvider } from "@/components/ui/color-mode";
+import { Toaster } from "@/components/ui/toaster";
 const config = defineConfig({
   theme: {},
 });
@@ -21,6 +22,7 @@ export function Provider(props: React.PropsWithChildren) {
       <ColorModeProvider>
         {/* <ColorModeButton style={{ position: "fixed", right: "0" }} /> */}
         {props.children}
+        <Toaster />
       </ColorModeProvider>
     </ChakraProvider>
   );

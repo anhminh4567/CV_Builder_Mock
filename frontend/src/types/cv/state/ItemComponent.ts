@@ -1,7 +1,8 @@
+import { Sections } from "./AllSectionTypes";
 import { Component } from "./Component";
 import { ComponentType } from "./ComponentType";
 
-export class ItemComponent extends Component {
+export class ItemComponent<T extends Sections> extends Component<T> {
   constructor(
     id: string,
     createdAt: Date,
